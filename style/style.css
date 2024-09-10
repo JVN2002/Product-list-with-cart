@@ -1,0 +1,119 @@
+body{
+    background-color: hsl(13, 31%, 94%);
+    margin: 0;
+    padding: 0;
+    font-family:"Red Hat Display", sans-serif;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.menu {
+    width: 70%;
+}
+
+.menu h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: hsl(14, 65%, 9%);
+}
+
+.desserts-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.dessert-item {
+    padding-right: 130px;
+    width: 125px;
+}
+
+
+.dessert-item img{
+    width: 200%;
+    height: auto;
+    border-radius: 8px
+}
+
+.add-to-cart{
+    margin-top: 10px;
+    padding: 15px 5px;
+    background-color: hsl(20, 50%, 98%);
+    color: hsl(14, 86%, 42%);
+    border: 1px solid hsl(12, 20%, 44%);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+.add-to-cart b{
+    color: hsl(14, 65%, 9%);
+}
+
+.dessert-item .descricao{
+    width: 200px;
+}
+
+.dessert-item .descricao h4{
+    color: hsla(14, 65%, 9%, 0.475);
+    
+}
+
+.dessert-item .descricao h3{
+    color: hsl(14, 65%, 9%);
+    margin-top: -20px;
+}
+
+.dessert-item .descricao p{
+    color: hsl(14, 86%, 42%);
+    margin-top: -20px;
+}
+
+
+/*carrinho*/
+.cart {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.cart h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart ul li {
+    margin-bottom: 10px;
+}
+
+.cart p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.confirm-order {
+    width: 100%;
+    padding: 10px;
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-order:hover {
+    background-color: #d45d42;
+}
