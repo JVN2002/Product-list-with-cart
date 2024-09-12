@@ -24,7 +24,7 @@ body{
 
 .desserts-grid{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
@@ -78,7 +78,7 @@ body{
 /*carrinho*/
 .cart {
     width: 30%;
-    background-color: #fff;
+    background-color: hsl(20, 50%, 98%);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,6 +88,7 @@ body{
 .cart h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
+    color: hsl(14, 86%, 42%);
 }
 
 .cart ul {
@@ -99,6 +100,14 @@ body{
     margin-bottom: 10px;
 }
 
+.cart ul li span{
+    color: hsla(0, 0%, 0%, 0.392);
+}
+
+.cart ul li span b{
+    color: hsl(14, 86%, 42%);
+}
+
 .cart p {
     font-size: 1.2rem;
     font-weight: bold;
@@ -107,10 +116,10 @@ body{
 .confirm-order {
     width: 100%;
     padding: 10px;
-    background-color: #e76f51;
+    background-color: hsl(14, 86%, 42%);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 45px;
     cursor: pointer;
 }
 
