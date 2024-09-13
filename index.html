@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./style/style.css">
@@ -15,104 +18,91 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
+
 <body>
-    <div class="container">
-        <section class="menu">
-            <h1><b>Desserts</b></h1>
-            <div class="desserts-grid">
-
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Waffle</h5>
-                    <h4>Waffle with Berries</h4>
-                    <p class="price"><b>$6.50</b></p>
-                  </div>
-                </div>
-                
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-creme-brulee-desktop.jpg" alt="creme-brulee">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Creme Brulee</h5>
-                    <h4>Vanila Creme Brulee</h4>
-                    <p class="price"><b>$7.00</b></p>
-                  </div>
-                </div>
-
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-macaron-desktop.jpg" alt="macaron">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Macaron</h5>
-                    <h4>Macaron Mix of Five</h4>
-                    <p class="price"><b>$8.00</b></p>
-                  </div>
-                </div>
-
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Waffle</h5>
-                    <h4>Waffle with Berries</h4>
-                    <p class="price"><b>$6.50</b></p>
-                  </div>
-                </div>
-                
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-creme-brulee-desktop.jpg" alt="creme-brulee">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Creme Brulee</h5>
-                    <h4>Vanila Creme Brulee</h4>
-                    <p class="price"><b>$7.00</b></p>
-                  </div>
-                </div>
-
-                <div class="dessert-item">
-                  <div class="img-btn">
-                    <img src="assets/images/image-macaron-desktop.jpg" alt="macaron">
-                    <button class="add-to-cart"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg> 
-                    <b>Add to Cart</b></button>
-                  </div>
-                  <div class="descricao">
-                    <h5>Macaron</h5>
-                    <h4>Macaron Mix of Five</h4>
-                    <p class="price"><b>$8.00</b></p>
-                  </div>
-                </div>
+  <main><!--melhor alteraar para main / estudar sections -->
+    <section class="menu">
+      <h1><b>Desserts</b></h1>
+      <div class="desserts-grid">
+        <ul>
+          <li>
+            <div class="img-btn">
+              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
+              <button class="btn-addToCart">
+                <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
+                <b>Add to Cart</b>
+              </button>
             </div>
-        </section>
+            <div class="descricao">
+              <h5>Waffle</h5>
+              <h4>Waffle with Berries</h4>
+              <p class="price"><b>$6.50</b></p>
+            </div>
+          </li>
+          <li>
+            <div class="img-btn">
+              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
+              <button class="btn-addToCart">
+                <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
+                <b>Add to Cart</b>
+              </button>
+            </div>
+            <div class="descricao">
+              <h5>Waffle</h5>
+              <h4>Waffle with Berries</h4>
+              <p class="price"><b>$6.50</b></p>
+            </div>
+          </li>
+        </ul>
 
-        <aside class="cart">
-          <h2>Your Cart</h2>
-          <ul class="cart-items">
-            <li>
-                <b>Classic Tiramisu</b><br>
-                <span><b>1x </b></span> <span>@$5.50 </span>  $5.50
-            </li>
-          </ul>
-          <p>Total: $46.50</p>
-          <button class="confirm-order">Confirm Order</button>
-        </aside>
-    </div>
+        <ul>
+          <li>
+            <div class="img-btn">
+              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
+              <button class="btn-addToCart">
+                <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
+                <b>Add to Cart</b>
+              </button>
+            </div>
+            <div class="descricao">
+              <h5>Waffle</h5>
+              <h4>Waffle with Berries</h4>
+              <p class="price"><b>$6.50</b></p>
+            </div>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <div class="img-btn">
+              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
+              <button class="btn-addToCart">
+                <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
+                <b>Add to Cart</b>
+              </button>
+            </div>
+            <div class="descricao">
+              <h5>Waffle</h5>
+              <h4>Waffle with Berries</h4>
+              <p class="price"><b>$6.50</b></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="cart">
+      <h2>Your Cart</h2>
+      <ul class="cart-items">
+        <li>
+          <b>Classic Tiramisu</b><br>
+          <span><b>1x </b></span> <span>@$5.50 </span> $5.50
+        </li>
+      </ul>
+      <p>Total: $46.50</p>
+      <button class="confirm-order">Confirm Order</button>
+    </aside>
+  </main>
   <!-- Desserts
 
   Waffle with Berries
@@ -164,9 +154,10 @@
   Your added items will appear here -->
 
   <div class="interface">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
     Coded by <a href="https://github.com/JVN2002">j-v-n</a>.
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>

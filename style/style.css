@@ -5,7 +5,7 @@ body{
     font-family:"Red Hat Display", sans-serif;
 }
 
-.container {
+main {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
@@ -25,51 +25,64 @@ body{
 .desserts-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 30px;
 }
 
-.dessert-item {
-    padding-right: 130px;
-    width: 125px;
+.img-btn{
+    position: relative;
 }
 
+ul{
+    list-style-type: none;
+    padding-left: 0%;
+}
 
-.dessert-item img{
-    width: 200%;
+li{
+    padding-bottom: 10px;
+}
+
+ul li .photo{
+    width: 100%;
     height: auto;
-    border-radius: 8px
+    border-radius: 8px;
 }
 
-.add-to-cart{
-    margin-top: 10px;
-    padding: 15px 5px;
-    background-color: hsl(20, 50%, 98%);
-    color: hsl(14, 86%, 42%);
-    border: 1px solid hsl(12, 20%, 44%);
-    border-radius: 50px;
-    cursor: pointer;
-}
+.btn-addToCart{
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%);
 
-
-.add-to-cart b{
     color: hsl(14, 65%, 9%);
+	background-color: hsl(20, 50%, 98%);
+	font-size: 14px;
+	border: 2px solid hsla(0, 0%, 56%, 0.368);
+	border-radius: 40px;
+    width: 160px;
+    height: 45px;
+	cursor: pointer;
+    text-align: center;
 }
 
-.dessert-item .descricao{
-    width: 200px;
+.btn-addToCart:hover {
+    border:2px solid hsl(14, 86%, 42%);
 }
 
-.dessert-item .descricao h4{
+li .descricao{
+    padding-top: 15px;
+}
+
+li .descricao h5{
     color: hsla(14, 65%, 9%, 0.475);
     
 }
 
-.dessert-item .descricao h3{
+li h4{
     color: hsl(14, 65%, 9%);
     margin-top: -20px;
 }
 
-.dessert-item .descricao p{
+li p{
     color: hsl(14, 86%, 42%);
     margin-top: -20px;
 }
