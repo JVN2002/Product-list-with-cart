@@ -27,30 +27,40 @@
         <ul>
           <li>
             <div class="img-btn">
-              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
-              <button class="btn-addToCart">
+              <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle" class="photo">
+              <button class="btn-addToCart" id="btnAddToCart" onclick="addToCardapio()">
                 <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
                 <b>Add to Cart</b>
+              </button>
+              <button class="img-btn-add" id="imgBntAdd">
+                <img src="assets/images/icon-decrement-quantity.svg" class="menos" id="menos" alt="menos" onclick="verificaMenos()">
+                <b class="quantidade" id="qtd"></b>
+                <img src="assets/images/icon-increment-quantity.svg" class="mais" id="mais" alt="mais" onclick="verificaMais()">
               </button>
             </div>
             <div class="descricao">
               <h5>Waffle</h5>
-              <h4>Waffle with Berries</h4>
-              <p class="price"><b>$6.50</b></p>
+              <h4 id="name">Waffle with Berries</h4>
+              <p class="price" id="preco"><b>6.50</b></p>
             </div>
           </li>
           <li>
             <div class="img-btn">
-              <img src="assets/images/image-baklava-desktop.jpg" alt="Baklava" class="photo">
-              <button class="btn-addToCart">
+              <img src="assets/images/image-baklava-desktop.jpg" alt="baklava" class="photo">
+              <button class="btn-addToCart" id="btnAddToCart" onclick="addToCardapio()">
                 <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
                 <b>Add to Cart</b>
               </button>
+              <button class="img-btn-add" id="imgBntAdd">
+                <img src="assets/images/icon-decrement-quantity.svg" class="menos" id="menos" alt="menos" onclick="verificaMenos()">
+                <b class="quantidade" id="qtd"></b>
+                <img src="assets/images/icon-increment-quantity.svg" class="mais" id="mais" alt="mais" onclick="verificaMais()">
+              </button>
             </div>
             <div class="descricao">
-              <h5>Waffle</h5>
-              <h4>Waffle with Berries</h4>
-              <p class="price"><b>$6.50</b></p>
+              <h5>Baklava</h5>
+              <h4 id="name">Pistachio Baklava</h4>
+              <p class="price" id="preco"><b>4.00</b></p>
             </div>
           </li>
         </ul>
@@ -93,14 +103,13 @@
 
     <aside class="cart">
       <h2>Your Cart</h2>
-      <ul class="cart-items">
-        <li>
-          <b>Classic Tiramisu</b><br>
-          <span><b>1x </b></span> <span>@$5.50 </span> $5.50
-        </li>
-      </ul>
-      <p>Total: $46.50</p>
-      <button class="confirm-order">Confirm Order</button>
+      <ul class="cart-items" id="dessertsList">       
+      </ul>     
+      <div class="alinhamento">
+        <p>Order total:</p>
+        <p class="total">$46.50</p>
+      </div>
+      <button class="confirm-order" id="confirm-order">Confirm Order</button>
     </aside>
   </main>
   <!-- Desserts
