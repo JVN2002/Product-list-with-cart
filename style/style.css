@@ -155,6 +155,19 @@ li .descricao p{
     margin-left: 20px;
 }
 
+.cart .carrinhoVazio{
+    padding: 15px;
+    display: grid;
+    place-items: center;
+}
+
+
+
+.cart .carrinhoVazio p{
+    color: hsl(7, 20%, 60%);
+
+}
+
 .cart h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;

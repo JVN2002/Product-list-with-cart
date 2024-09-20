@@ -4,6 +4,8 @@ let btnConfirm = document.getElementById('confirm-order');
 
 let cardapio = []; 
 
+let qtdCarrinho = document.getElementById('qtdCarrinho');
+
 fetch('data.json')
     .then(res=> res.json())
     .then(data => {
@@ -15,28 +17,24 @@ fetch('data.json')
 
 
 function abreBotao(id, qtd){
-    let btnAdd = document.getElementById(id);
-    if(btnAdd)
-    {
-        btnAdd.classList.add('abrirQuantidade');
-    }   
+    id.classList.add('abrirQuantidade');
     qtdGlobal = qtd;
+    console.log(qtd);
 }
 
-function fechaBotao(){
-    btnAdd.classList.remove('abrirQuantidade');
+
+function fechaBotao(id){
+    id.classList.remove('abrirQuantidade');
     count = 0;
 }
 
-btnConfirm.addEventListener('click', fechaBotao)
 
-
-function verificaMenos(id){
+function verificaMenos(id,qdtID){
     qtdGlobal --;
-    id.textContent = qtdGlobal;
+    qdtID.textContent = qtdGlobal;
     if(qtdGlobal === 0)
     {
-        fechaBotao();
+        fechaBotao(id);
     }
 }
 
@@ -47,9 +45,10 @@ function verificaMais(id){
 }
 
 
-
 const DessertList = document.getElementById('dessertsList');
 const cardapioListUL = document.getElementById('ulList');
+const carrinhoHTML = document.getElementById('cartID');
+
 
 function formataPreco(){
     let real =  new Intl.NumberFormat('pt-br', {
@@ -67,12 +66,12 @@ function cardapioList(){
         card.innerHTML = `<li class="card">
             <div class="img-btn">
               <img src="${cardapio[j].image.desktop}" alt="Waffle" class="photo">
-              <button class="btn-addToCart" id="btnAddToCart" onclick="abreBotao(btnId,qtd${j}.innerText), addToCardapio(name${j}.innerText,preco${j}.innerText,qtd${j}.innerText)">
+              <button class="btn-addToCart" id="btnAddToCart" onclick="abreBotao(btnId${j},qtd${j}.innerText), addToCardapio(name${j}.innerText,preco${j}.innerText,qtd${j}.innerText)">
                 <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
                 <b>Add to Cart</b>
               </button>
-              <button class="img-btn-add" id="btnId">
-                <img src="assets/images/icon-decrement-quantity.svg" class="menos" id="menos" alt="menos" onclick="verificaMenos(qtd${j})">
+              <button class="img-btn-add" id="btnId${j}">
+                <img src="assets/images/icon-decrement-quantity.svg" class="menos" id="menos" alt="menos" onclick="verificaMenos(btnId${j},qtd${j})">
                 <b class="quantidade" id="qtd${j}">1</b>
                 <img src="assets/images/icon-increment-quantity.svg" class="mais" id="mais" alt="mais" onclick="verificaMais(qtd${j})">
               </button>
@@ -87,9 +86,11 @@ function cardapioList(){
     }
 }
 
+
+
 function addToCardapio(name,preco){
     
-    const precoTotal= preco * qtdGlobal;
+    let precoTotal= preco * qtdGlobal;
     if(name !== ""){
         const li = document.createElement("li");
         li.innerHTML = `<li>
@@ -101,10 +102,42 @@ function addToCardapio(name,preco){
         </li>`;
         DessertList.appendChild(li);
         name.value = "";
-        console.log(qtdGlobal);
         attcardapio();
     }
 }
+
+function criandoCarrinho(){
+    if(addToCardapio === false){
+        const img = document.createElement("div");
+        img.innerHTML = `<div class="carrinhoVazio">
+        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
+        <p><b>Your added items will appear here</b></p>
+      </div>`;
+      carrinhoHTML.appendChild(img);
+    }else if(addToCardapio)
+    {
+        const total = document.createElement("div");
+        total.innerHTML = `<ul class="cart-items" id="dessertsList">       
+      </ul>     
+      <div class="alinhamento">
+        <p>Order total:</p>
+        <p class="total">$46.50</p>
+      </div>
+      <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>`;
+      carrinhoHTML.appendChild(total);
+    }
+    /*if(addToCardapio)
+    {
+        parseInt(qtdCarrinho);
+        qtdCarrinho ++;
+        idQTD.textContent = qtdCarrinho;
+    }else{
+        const img = document.createElement("img");
+        img.innerHTML = ``
+    }*/
+
+}
+
 
 function attcardapio(){
     if(verificaMais)
