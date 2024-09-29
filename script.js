@@ -1,10 +1,8 @@
-
-
-let btnConfirm = document.getElementById('confirm-order');
-
 let cardapio = []; 
+var contador = 0;
 
-let qtdCarrinho = document.getElementById('qtdCarrinho');
+
+
 
 fetch('data.json')
     .then(res=> res.json())
@@ -19,7 +17,8 @@ fetch('data.json')
 function abreBotao(id, qtd){
     id.classList.add('abrirQuantidade');
     qtdGlobal = qtd;
-    console.log(qtd);
+    contador++;
+    
 }
 
 
@@ -32,9 +31,10 @@ function fechaBotao(id){
 function verificaMenos(id,qdtID){
     qtdGlobal --;
     qdtID.textContent = qtdGlobal;
-    if(qtdGlobal === 0)
+    if(qtdGlobal <= 0)
     {
         fechaBotao(id);
+        count = 0;
     }
 }
 
@@ -89,10 +89,10 @@ function cardapioList(){
 
 
 function addToCardapio(name,preco){
-    
+    const li = document.createElement("li");
     let precoTotal= preco * qtdGlobal;
     if(name !== ""){
-        const li = document.createElement("li");
+        
         li.innerHTML = `<li>
           <b>${name}</b><br>
           <div class="alinhamento">
@@ -102,12 +102,28 @@ function addToCardapio(name,preco){
         </li>`;
         DessertList.appendChild(li);
         name.value = "";
-        attcardapio();
+        attcardapio();       
     }
+    
 }
 
+console.log("chamou"+contador);
+
+var container = document.querySelector("#container");
+
+if(contador === 0){
+    container.innerHTML = `<div class="carrinhoVazio">
+        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
+        <p><b>Your added items will appear here</b></p>
+      </div>`;
+}
+
+
+
 function criandoCarrinho(){
-    if(addToCardapio === false){
+    
+
+    /*if(addToCardapio === false){
         const img = document.createElement("div");
         img.innerHTML = `<div class="carrinhoVazio">
         <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
@@ -126,7 +142,7 @@ function criandoCarrinho(){
       <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>`;
       carrinhoHTML.appendChild(total);
     }
-    /*if(addToCardapio)
+    if(addToCardapio)
     {
         parseInt(qtdCarrinho);
         qtdCarrinho ++;

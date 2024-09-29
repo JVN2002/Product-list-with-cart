@@ -32,17 +32,15 @@
 
     <aside class="cart" id="cartID">
       <h2>Your Cart(<span id="qtdCarrinho">0</span>)</h2>
-     <div class="carrinhoVazio">
-        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
-        <p><b>Your added items will appear here</b></p>
+      <div id="container">
+        <ul class="cart-items" id="dessertsList">       
+        </ul>     
+        <div class="alinhamento">
+          <p>Order total:</p>
+          <p class="total">$46.50</p>
+        </div>
+        <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>
       </div>
-      <!-- <ul class="cart-items" id="dessertsList">       
-      </ul>     
-      <div class="alinhamento">
-        <p>Order total:</p>
-        <p class="total">$46.50</p>
-      </div>
-      <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>-->
     </aside>
   </main>
   
