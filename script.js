@@ -1,7 +1,4 @@
 let cardapio = []; 
-var contador = 0;
-
-
 
 
 fetch('data.json')
@@ -17,14 +14,12 @@ fetch('data.json')
 function abreBotao(id, qtd){
     id.classList.add('abrirQuantidade');
     qtdGlobal = qtd;
-    contador++;
-    
 }
 
 
 function fechaBotao(id){
     id.classList.remove('abrirQuantidade');
-    count = 0;
+
 }
 
 
@@ -34,7 +29,7 @@ function verificaMenos(id,qdtID){
     if(qtdGlobal <= 0)
     {
         fechaBotao(id);
-        count = 0;
+
     }
 }
 
@@ -44,8 +39,7 @@ function verificaMais(id){
     id.textContent = qtdGlobal;
 }
 
-
-const DessertList = document.getElementById('dessertsList');
+const DessertList = document.getElementById('container');
 const cardapioListUL = document.getElementById('ulList');
 const carrinhoHTML = document.getElementById('cartID');
 
@@ -66,7 +60,7 @@ function cardapioList(){
         card.innerHTML = `<li class="card">
             <div class="img-btn">
               <img src="${cardapio[j].image.desktop}" alt="Waffle" class="photo">
-              <button class="btn-addToCart" id="btnAddToCart" onclick="abreBotao(btnId${j},qtd${j}.innerText), addToCardapio(name${j}.innerText,preco${j}.innerText,qtd${j}.innerText)">
+              <button class="btn-addToCart" id="btnAddToCart" onclick="abreBotao(btnId${j},qtd${j}.innerText), attCardapio(name${j}.innerText,preco${j}.innerText,qtd${j}.innerText)">
                 <img src="assets/images/icon-add-to-cart.svg" alt="carrinho">
                 <b>Add to Cart</b>
               </button>
@@ -86,89 +80,47 @@ function cardapioList(){
     }
 }
 
+window.onload = function vazio(){
+    let elemento = document.getElementById('container');
+   
+        elemento.innerHTML = `<div class="carrinhoVazio">
+        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
+        <p><b>Your added items will appear here</b></p>
+      </div>`;
+}
 
+let count = 0;
 
-function addToCardapio(name,preco){
-    const li = document.createElement("li");
-    let precoTotal= preco * qtdGlobal;
-    if(name !== ""){
+function attCardapio(name, preco){        
+        if(count === 0){
+            DessertList.innerHTML = ``;
+        }        
+        let elemento = document.createElement("ul");
+        elemento.className = "cart-items";
+        let precoTotal =  preco * qtdGlobal;
         
-        li.innerHTML = `<li>
-          <b>${name}</b><br>
-          <div class="alinhamento">
-            <span><b>${qtdGlobal}x</b></span><p class="preco"><span>@$${preco} </span>$${precoTotal}</p>
-            <button onclick="removerItem(this)"><img src="assets/images/icon-remove-item.svg" alt="X"></button>
-          </div>
-        </li>`;
-        DessertList.appendChild(li);
-        name.value = "";
-        attcardapio();       
-    }
-    
-}
-
-console.log("chamou"+contador);
-
-var container = document.querySelector("#container");
-
-if(contador === 0){
-    container.innerHTML = `<div class="carrinhoVazio">
-        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
-        <p><b>Your added items will appear here</b></p>
-      </div>`;
-}
-
-
-
-function criandoCarrinho(){
-    
-
-    /*if(addToCardapio === false){
-        const img = document.createElement("div");
-        img.innerHTML = `<div class="carrinhoVazio">
-        <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
-        <p><b>Your added items will appear here</b></p>
-      </div>`;
-      carrinhoHTML.appendChild(img);
-    }else if(addToCardapio)
-    {
-        const total = document.createElement("div");
-        total.innerHTML = `<ul class="cart-items" id="dessertsList">       
-      </ul>     
-      <div class="alinhamento">
-        <p>Order total:</p>
-        <p class="total">$46.50</p>
-      </div>
-      <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>`;
-      carrinhoHTML.appendChild(total);
-    }
-    if(addToCardapio)
-    {
-        parseInt(qtdCarrinho);
-        qtdCarrinho ++;
-        idQTD.textContent = qtdCarrinho;
-    }else{
-        const img = document.createElement("img");
-        img.innerHTML = ``
-    }*/
-
-}
-
-
-function attcardapio(){
-    if(verificaMais)
-    {
-        parseInt(addToCardapio.count);
-        addToCardapio.count ++;
-    }
-    else if(verificaMenos)
-    {
-        addToCardapio.count --;
-    }
+        if(name !== ""){
+            elemento.innerHTML = `<li>
+            <b>${name}</b><br>
+            <div class="alinhamento">
+                <span><b>${qtdGlobal}x</b></span><p class="preco"><span>@$${preco} </span>$${precoTotal}</p>
+                <button onclick="removerItem(this)"><img src="assets/images/icon-remove-item.svg" alt="X"></button>
+            </div>
+            </li>`;
+            DessertList.appendChild(elemento);
+            name.value = "";      
+        }
+        count ++;
+        if(isNaN(parseInt(preco))){
+            console.log("nao e um numero");
+        }else{
+            console.log(preco);
+        }
+        
 }
 
 function removerItem(button){
-    const li = button.parentElement;
-    DessertList.removeAttribute(li);
+    let elemento = button.parentElement;
+    DessertList.removeChild(elemento);
 }
 
