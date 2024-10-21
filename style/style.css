@@ -246,3 +246,18 @@ li .descricao p{
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.aviso{
+    background-color: hsl(13, 31%, 94%);
+    border-radius: 10px;
+    padding: 5px;
+    flex-direction: row;
+    display: flex;                
+    justify-content: center;       
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.aviso img{
+    padding-right: 10px;
+}

@@ -1,5 +1,8 @@
 let cardapio = []; 
-
+let count = 0;
+let total = 0;
+let qtdGlobal = 0;
+let qtdCarrinho = 0;
 
 fetch('data.json')
     .then(res=> res.json())
@@ -19,7 +22,6 @@ function abreBotao(id, qtd){
 
 function fechaBotao(id){
     id.classList.remove('abrirQuantidade');
-
 }
 
 
@@ -29,12 +31,10 @@ function verificaMenos(id,qdtID){
     if(qtdGlobal <= 0)
     {
         fechaBotao(id);
-
     }
 }
 
 function verificaMais(id){
-    parseInt(qtdGlobal);
     qtdGlobal ++;
     id.textContent = qtdGlobal;
 }
@@ -42,6 +42,8 @@ function verificaMais(id){
 const DessertList = document.getElementById('container');
 const cardapioListUL = document.getElementById('ulList');
 const carrinhoHTML = document.getElementById('cartID');
+const compraDoCarrinho = document.getElementById('compraFinal');
+const tituloCarrinho = document.getElementById('qtdCarrinho');
 
 
 function formataPreco(){
@@ -80,16 +82,14 @@ function cardapioList(){
     }
 }
 
-window.onload = function vazio(){
-    let elemento = document.getElementById('container');
-   
-        elemento.innerHTML = `<div class="carrinhoVazio">
+window.onload = function vazio(){   
+    DessertList.innerHTML = `<div class="carrinhoVazio">
         <img src="assets/images/illustration-empty-cart.svg" alt="vaziu">
         <p><b>Your added items will appear here</b></p>
       </div>`;
 }
 
-let count = 0;
+
 
 function attCardapio(name, preco){        
         if(count === 0){
@@ -97,30 +97,51 @@ function attCardapio(name, preco){
         }        
         let elemento = document.createElement("ul");
         elemento.className = "cart-items";
-        let precoTotal =  preco * qtdGlobal;
-        
+        let precoReal = preco.replace("R$","").trim().replace(",",".");
+        let precoRealFloat = parseFloat(precoReal);
+        let precoTotal =  precoRealFloat * qtdGlobal;
+        let qtdAtual = 0;
+        qtdAtual += parseInt(qtdGlobal);
+
         if(name !== ""){
+            
             elemento.innerHTML = `<li>
             <b>${name}</b><br>
             <div class="alinhamento">
-                <span><b>${qtdGlobal}x</b></span><p class="preco"><span>@$${preco} </span>$${precoTotal}</p>
+                <span><b>${qtdAtual}x</b></span><p class="preco"><span>@${preco} </span>R$ ${precoTotal.toFixed(2)}</p>
                 <button onclick="removerItem(this)"><img src="assets/images/icon-remove-item.svg" alt="X"></button>
             </div>
             </li>`;
             DessertList.appendChild(elemento);
             name.value = "";      
-        }
+        }        
+        total += precoTotal; 
+        compraDoCarrinho.innerHTML = `<div class="alinhamento">
+            <p>Order total:</p>
+            <p class="total">R$ ${total.toFixed(2)}</p>
+          </div>
+          <div class="aviso">
+          <img src="assets/images/icon-carbon-neutral.svg" alt="">
+          <p>This is a <b>carbon-neutral</b> delivery</p>
+          </div>
+          <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId3)">Confirm Order</button>`;
         count ++;
-        if(isNaN(parseInt(preco))){
-            console.log("nao e um numero");
-        }else{
-            console.log(preco);
-        }
-        
+        qtdCarrinho += parseInt(qtdGlobal);
+
+        tituloCarrinho.textContent = qtdCarrinho;
+}
+
+function precoFinal(){
+    total += precoTotal; 
+    carrinhoHTML.innerHTML = `<div class="alinhamento">
+        <p>Order total:</p>
+        <p class="total">R$ ${total}</p>
+      </div>
+      <button class="confirm-order" id="confirm-order" onclick="fechaBotao(btnId0)">Confirm Order</button>`;
 }
 
 function removerItem(button){
     let elemento = button.parentElement;
-    DessertList.removeChild(elemento);
+    DessertList.remove(elemento);
 }
 
