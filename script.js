@@ -1,7 +1,7 @@
 let cardapio = []; 
 let count = 0;
 let total = 0;
-let qtdGlobal = 0;
+let qtdGlobal = 1;
 let qtdCarrinho = 0;
 
 fetch('data.json')
@@ -13,6 +13,23 @@ fetch('data.json')
     .catch(error => console.log('erro',error));
 
 
+function attValores()
+{
+    let QTDBotao = [];
+    for(let j = 0;j<cardapio.length;j++)
+    {
+        QTDBotao.push(document.getElementById(`qtd${j}`));
+        QTDBotao[j].textContent = qtdGlobal;
+    }
+
+
+    let QTDCardapio = [];
+    for(let i = 0;i>count;i++)
+    {
+        QTDCardapio.push(document.getElementById(`qtd${i}`));
+        QTDCardapio[i].textContent = qtdGlobal;
+    }
+}
 
 function abreBotao(id, qtd){
     id.classList.add('abrirQuantidade');
@@ -26,17 +43,23 @@ function fechaBotao(id){
 
 
 function verificaMenos(id,qdtID){
-    qtdGlobal --;
-    qdtID.textContent = qtdGlobal;
-    if(qtdGlobal <= 0)
+    if(qtdGlobal >= 1)
     {
-        fechaBotao(id);
+        qtdGlobal --;
+        attValores();
+        //qdtID.textContent = qtdGlobal;
+        //attvalores();        
     }
+    if(qtdGlobal <= 0)
+        {
+            fechaBotao(id);
+            qtdGlobal++;
+        }
 }
 
 function verificaMais(id){
     qtdGlobal ++;
-    id.textContent = qtdGlobal;
+    attValores();
 }
 
 const DessertList = document.getElementById('container');
@@ -108,7 +131,7 @@ function attCardapio(name, preco){
             elemento.innerHTML = `<li>
             <b>${name}</b><br>
             <div class="alinhamento">
-                <span><b>${qtdAtual}x</b></span><p class="preco"><span>@${preco} </span>R$ ${precoTotal.toFixed(2)}</p>
+                <span><b id = "qtd${count}">1x</b></span><p class="preco"><span>@${preco} </span>R$ ${precoTotal.toFixed(2)}</p>
                 <button onclick="removerItem(this)"><img src="assets/images/icon-remove-item.svg" alt="X"></button>
             </div>
             </li>`;
@@ -129,6 +152,7 @@ function attCardapio(name, preco){
         qtdCarrinho += parseInt(qtdGlobal);
 
         tituloCarrinho.textContent = qtdCarrinho;
+        attValores();
 }
 
 function precoFinal(){
